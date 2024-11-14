@@ -1,0 +1,44 @@
+host: bc4login2
+Building DAG of jobs...
+SLURM run ID: 5ad52c73-17dc-47f2-a5bf-fb5d2707a281
+Using shell: /usr/bin/bash
+Provided remote nodes: 1
+Job stats:
+job                         count
+------------------------  -------
+all                             1
+plot_{condition}                4
+side_effects_{condition}        4
+total                           9
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Nov 14 14:23:35 2024]
+rule side_effects_{condition}:
+    input: ../data/original/drugLibTrain_raw.tsv
+    output: ../data/derived/intermediate/word_rankings_insomnia.csv
+    jobid: 8
+    reason: Missing output files: ../data/derived/intermediate/word_rankings_insomnia.csv
+    wildcards: condition=insomnia
+    resources: mem_mb=100, mem_mib=96, disk_mb=1000, disk_mib=954, tmpdir=<TBD>, slurm_partition=teach_cpu, slurm_account=sscm033324, runtime=10, ntasks=1, nodes=1
+
+Rscript 1_find_side_effects.R insomnia
+Job 8 has been submitted with SLURM jobid 10705324 (log: /user/home/zp24731/conda-hpc-snakemake-example/code/.snakemake/slurm_logs/rule_side_effects_{condition}/insomnia/10705324.log).
+[Thu Nov 14 14:24:15 2024]
+Error in rule side_effects_{condition}:
+    message: SLURM-job '10705324' failed, SLURM status is: 'FAILED'. For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 8
+    input: ../data/original/drugLibTrain_raw.tsv
+    output: ../data/derived/intermediate/word_rankings_insomnia.csv
+    log: /user/home/zp24731/conda-hpc-snakemake-example/code/.snakemake/slurm_logs/rule_side_effects_{condition}/insomnia/10705324.log (check log file(s) for error details)
+    shell:
+        Rscript 1_find_side_effects.R insomnia
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    external_jobid: 10705324
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-11-14T142335.692816.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

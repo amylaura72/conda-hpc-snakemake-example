@@ -1,0 +1,24 @@
+host: bc4login2
+Building DAG of jobs...
+SLURM run ID: 39267e26-de32-4266-b21c-c01d06faac80
+Using shell: /usr/bin/bash
+Provided remote nodes: 1
+Job stats:
+job                         count
+------------------------  -------
+all                             1
+plot_{condition}                4
+side_effects_{condition}        4
+total                           9
+
+Select jobs to execute...
+InputFunctionException in rule side_effects_{condition} in file /user/home/zp24731/conda-hpc-snakemake-example/code/Snakefile, line 19:
+Error:
+  WorkflowError:
+    Failed to evaluate resources value ''.
+        String arguments may need additional quoting. E.g.: --default-resources "tmpdir='/home/user/tmp'" or --set-resources "somerule:someresource='--nice=100'". This also holds for setting resources inside of a profile, where you might have to enclose them in single and double quotes, i.e. someresource: "'--nice=100'".
+    SyntaxError: invalid syntax (<string>, line 0)
+Wildcards:
+  condition=insomnia
+Traceback:
+ (rule side_effects_{condition}, line 40, /user/home/zp24731/conda-hpc-snakemake-example/code/Snakefile)
